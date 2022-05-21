@@ -20,11 +20,11 @@ int main() {
 		strcpy(line, line + 13);
 		strtok(line, "\"");
 	} else {
-	strcpy(line, line + 6); // Removing NAME="
-	strtok(line, "\""); // Removing the last quote
+		strcpy(line, line + 6); // Removing NAME="
+		strtok(line, "\""); // Removing the last quote
 	}
 	fclose(osfile); 
-	
+
 	// Getting the WM
 	FILE *fp;
 	char path[25];
@@ -32,7 +32,7 @@ int main() {
 	fp = popen("wmctrl -m | awk ' /Name/ {print $2}'", "r");
 	if (fp == NULL) {
 		printf("Failed to run command\n" );
-	    exit(1);
+		exit(1);
 	}
 	fgets(path, sizeof(path), fp);
 	pclose(fp);
@@ -44,4 +44,4 @@ int main() {
 	printf("\\__|_|__/   wm ~ %s", path);
 	printf("   / \\ ");
 	printf("     \033[31m● \033[33m● \033[36m● \033[34m●\n\n");
-}
+	}
