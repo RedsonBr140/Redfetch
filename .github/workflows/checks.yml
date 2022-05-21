@@ -1,0 +1,20 @@
+name: Compile Check
+
+on: [push]
+
+jobs:
+  build:
+
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: install dependency packages
+      run: sudo apt install -y gcc
+
+    - name: build
+      run: make
