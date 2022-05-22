@@ -14,7 +14,7 @@
 
 ## Dependencies
  - `wmctrl`
- - `a C compiler` (such as clang or gcc)
+ - `A C compiler` (such as clang or gcc)
  - `make`
 ## Installation
 Build:
