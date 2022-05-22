@@ -28,6 +28,7 @@ Install:
 sudo make install
 ```
 ## TODO
- - [ ] Add a reset at the end of the colors blocks.
+ - [X] Add a reset at the end of the colors blocks.
+ - [  ] Add to AUR.
 ## Thanks to
  - [Pedro Portales](https://github.com/pedroportales) - by creating [ppfetch](https://github.com/pedroportales/ppfetch) and his beautiful bat ascii art.
