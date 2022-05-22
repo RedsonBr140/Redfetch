@@ -6,11 +6,11 @@ CC_FLAGS=-c			\
 		  -W		\
 		  -Wall		\
 		  -pedantic \
-		  -Werror # A warning at compile time is an error an runtime”
+		  -Werror 	# A warning at compile time is an error an runtime”
 all: options buildFolder $(PROJ_NAME)
 
 $(PROJ_NAME): $(OBJ)
-	$(CC) $^ -o $@
+	$(CC) $^ -o $@ -static
 
 buildFolder:
 	@ mkdir -p build
