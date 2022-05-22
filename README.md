@@ -1,7 +1,7 @@
 <h1 align="center"><code>Redfetch</code></h1>
 <p align="center">A fast fetch written in C, with the ppfetch Ascii Art.</p>
 <p align="center">
-<img src="https://github.com/RedsonBr140/Redfetch/actions/workflows/checks.yml/badge.svg"> 
+<img src="https://github.com/RedsonBr140/Redfetch/actions/workflows/pre-release.yml/badge.svg"> 
 <!--<img src="https://img.shields.io/github/commits-since/RedsonBr140/Redfetch/latest/main"> -->
 <img src="https://img.shields.io/github/license/RedsonBr140/Redfetch?style=flat">
 </p>
