@@ -10,8 +10,7 @@ int main() {
 	uname(&os); 
 	char *user = getlogin();
 	if(!user) {user = "uknown";}
-	char *shell = getusershell(); 
-	char *p = strrchr(shell, '/'); 
+	char *shell = getenv("SHELL");
 	// Getting the OS
 	char line[60];
 	FILE* osfile = fopen("/etc/os-release", "r"); 
@@ -39,8 +38,14 @@ int main() {
 	// Printing.
 	printf("            %s@%s\n", user, os.nodename);
 	printf("  (\\_/)     os ~ %s\n", line);
-	if(p && *(p++)) { printf("__(. .)__   sh ~ %s\n", p++); } else 
-		printf("__(. .)__   \n");
+	if(shell !=NULL){
+		char *p = strrchr(shell, '/');
+		printf("__(. .)__   sh ~ %s\n", p + 1);
+	} else { // Fallback
+		shell = getusershell();
+		char *p = strrchr(shell, '/');
+		printf("__(. .)__   sh ~ %s\n", p + 1);
+	}
 	printf("\\__|_|__/   wm ~ %s", path);
 	printf("   / \\ ");
 	printf("     \033[31m● \033[33m● \033[36m● \033[34m●\033[0m\n\n");
