@@ -27,15 +27,18 @@ int main() {
   
   // Getting the WM
   FILE *fp;
-  char path[25];
-  
-  fp = popen("wmctrl -m | awk ' /Name/ {print $2}'", "r");
+  char wm[25];
+
+  fp = popen("wmctrl -m", "r");
   if (fp == NULL) {
     printf("Failed to run command\n" );
     exit(1);
   }
-  fgets(path, sizeof(path), fp);
-  pclose(fp);
+ 
+  fgets(wm, sizeof(wm), fp);
+  sscanf(wm, "Name: %s", wm);
+  strcat(wm, "\n");
+  if(WEXITSTATUS(pclose(fp)) != 0){ strcpy(wm, "unknown\n"); }
   // Printing.
   printf("            %s@%s\n", user, os.nodename);
   printf("  (\\_/)     os ~ %s\n", line);
@@ -47,7 +50,7 @@ int main() {
     char *p = strrchr(shell, '/');
     printf("__(. .)__   sh ~ %s\n", p + 1);
   }
-  printf("\\__|_|__/   wm ~ %s", path);
+  printf("\\__|_|__/   wm ~ %s", wm);
   printf("   / \\ ");
   printf("     \033[31m● \033[33m● \033[36m● \033[34m●\033[0m\n\n");
 }
