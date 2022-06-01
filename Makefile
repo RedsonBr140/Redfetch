@@ -27,7 +27,8 @@ clean:
 	rm -rf $(PROJ_NAME) $(OBJ) build
 
 install: all
-	cp -f $(PROJ_NAME) $(DESTDIR)/usr/bin
+	mkdir -p ${DESTDIR}${PREFIX}/bin
+	cp -f $(PROJ_NAME) ${DESTDIR}${PREFIX}/bin
 	chmod 755 $(DESTDIR)/usr/bin/$(PROJ_NAME)
 
 uninstall:
