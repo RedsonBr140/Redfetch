@@ -18,7 +18,7 @@ buildFolder:
 options: 
 	@echo $(PROJ_NAME) build options:
 	@echo "CC_FLAGS = $(CC_FLAGS)"
-	@echo "CC = $(CC)"
+	@echo "CC = $(CC)\n"
 
 $(OBJ): $(SRC)
 	$(CC) $< $(CC_FLAGS) -o $@
@@ -26,7 +26,7 @@ $(OBJ): $(SRC)
 clean:
 	rm -rf $(PROJ_NAME) $(OBJ) build
 
-install: $(PROJ_NAME)
+install: all
 	cp -f $(PROJ_NAME) $(DESTDIR)/usr/bin
 	chmod 755 $(DESTDIR)/usr/bin/$(PROJ_NAME)
 
