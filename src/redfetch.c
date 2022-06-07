@@ -8,8 +8,13 @@ int main() {
   // needed vars
   struct utsname os;
   uname(&os);
-  char *user = getlogin();
-  if(!user) {user = "uknown";}
+  char *user;
+  if(getlogin()) {
+    user = getlogin();
+  } else if(getenv("USER")) {
+    user = getenv("USER");
+  } else { user = "unknown"; }
+  
   char *shell = getenv("SHELL");
 
   // Getting the OS
