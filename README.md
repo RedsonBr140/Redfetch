@@ -17,18 +17,28 @@
  - `A C compiler` (such as clang or gcc)
  - `make`
 ## Installation
-Build:
+
+Package Manager:
+```bash
+paru -S redfetch-git # Arch-based, with any AUR helper
+
+### Gentoo-based ###
+eselect repository enable gentoobr # Enable the overlay
+emaint sync -r gentoobr # Download the overlay ebuilds
+emerge --ask app-misc/Redfetch # Installing
+```
+
+Manually:
 ```
 git clone https://github.com/RedsonBr140/redfetch.git
 cd redfetch
 make
-```
-Install:
-```
 sudo make install
 ```
+
 ## TODO
  - [X] Add a reset at the end of the colors blocks.
- - [ ] Add to AUR.
+ - [X] Add to AUR.
+
 ## Thanks to
  - [Pedro Portales](https://github.com/pedroportales) - by creating [ppfetch](https://github.com/pedroportales/ppfetch) and his beautiful bat ascii art.
