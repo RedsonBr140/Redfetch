@@ -1,16 +1,16 @@
 PROJ_NAME=redfetch
-SRC=$(wildcard ./src/*.c)
+SRC=./src/${PROJ_NAME}.c
 OBJ=$(subst .c,.o,$(subst src,build,$(SRC)))
 
 CC_FLAGS=-c			\
 		  -W		\
 		  -Wall		\
-		  -pedantic \
-		  -Werror 	# A warning at compile time is an error an runtime”
+		  -pedantic 	\
+		  -Werror 	# A warning at compile time is an error at runtime
 all: options buildFolder $(PROJ_NAME)
 
-$(PROJ_NAME): $(OBJ)
-	$(CC) $^ -o $@ -static
+$(PROJ_NAME):
+	$(CC) -o build/$@ -static $(SRC)
 
 buildFolder:
 	@ mkdir -p build
@@ -19,9 +19,6 @@ options:
 	@echo $(PROJ_NAME) build options:
 	@echo "CC_FLAGS = $(CC_FLAGS)"
 	@echo "CC = $(CC)\n"
-
-$(OBJ): $(SRC)
-	$(CC) $< $(CC_FLAGS) -o $@
 
 clean:
 	rm -rf $(PROJ_NAME) $(OBJ) build
